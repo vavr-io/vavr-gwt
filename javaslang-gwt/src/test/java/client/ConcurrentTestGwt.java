@@ -21,7 +21,7 @@ public class ConcurrentTestGwt extends GWTTestCase {
     }
 
     public void testCreateFailFuture() {
-        final Future<Void> failed = Future(new RuntimeException("ooops"));
+        final Future<Void> failed = Future.failed(new RuntimeException("ooops"));
         assertTrue(failed.isFailure());
         Throwable t = failed.getValue().get().getCause();
         assertEquals(t.getClass(), RuntimeException.class);
