@@ -8,3 +8,4 @@ before_install:
 after_success:
   - codecov
   - python <(curl -s https://raw.githubusercontent.com/TouK/sputnik-ci/master/sputnik-ci.py)
+  - mvn clean deploy -DskipTests --settings .travis/maven-settings.xml
