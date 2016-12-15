@@ -1,6 +1,10 @@
 language: java
 jdk:
   - oraclejdk8
+env:
+  global:
+    - secure: RxTO5Qt7tvhjjkYtyFBw3ElX4r6vXLgkGzv7wk+EFF0CVUuyprR6Fsl6cKax6FlBoDRctcDKGdK1pgqKjsL8kZc+5+n/rpCmS+0m5y55RNsJNZ3I7rF7sJ/LnLI2lpcHIPvrsn1rz5oSAj1POuHVHiusKH9ByEiqlqw790cXJrM=
+    - secure: nOl84KOeJLcMKQhzsI5QD5mWdBVLde8jL7/ZHQPCBzErHinysPj4PUaSNiChy+PGIDG0KXYgifwtxJDperKdmk5enY2+3K3Yk6pgJQV32/snQpUzYdJwdyi4fGD57nO/B67mAd5O9owavknarLhHr8sSpfFlYke03Q7ptgbcKqU=
 before_install:
   - sudo apt-get update
   - sudo apt-get install --only-upgrade -y oracle-java8-installer
