@@ -25,11 +25,11 @@ public class CollectionsTestGwt extends GWTTestCase {
     }
 
     public void testCompileArray() {
-        applyCollection(Array::ofAll);
+        applyCollection(chars -> Array.ofAll(Iterator.ofAll(chars)));
     }
 
     public void testCompileBitSet() {
-        applyCollection(BitSet::ofAll);
+        applyCollection(chars -> BitSet.withCharacters().ofAll(Iterator.ofAll(chars)));
     }
 
     public void testCompileCharSeq() {
@@ -37,15 +37,15 @@ public class CollectionsTestGwt extends GWTTestCase {
     }
 
     public void testCompileHashSet() {
-        applyCollection(HashSet::ofAll);
+        applyCollection(chars -> HashSet.ofAll(Iterator.ofAll(chars)));
     }
 
     public void testCompileLinkedHashSet() {
-        applyCollection(LinkedHashSet::ofAll);
+        applyCollection(chars -> LinkedHashSet.ofAll(Iterator.ofAll(chars)));
     }
 
     public void testCompileList() {
-        applyCollection(List::ofAll);
+        applyCollection(chars -> List.ofAll(Iterator.ofAll(chars)));
     }
 
     public void testCompilePriorityQueue() {
@@ -53,7 +53,7 @@ public class CollectionsTestGwt extends GWTTestCase {
     }
 
     public void testCompileQueue() {
-        applyCollection(Queue::ofAll);
+        applyCollection(chars -> Queue.ofAll(Iterator.ofAll(chars)));
     }
 
     public void testCompileTreeSet() {
