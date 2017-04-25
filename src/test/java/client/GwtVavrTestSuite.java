@@ -4,12 +4,18 @@
  *                         \____/__/  \__\____/__/.ɪᴏ
  * ᶜᵒᵖʸʳᶦᵍʰᵗ ᵇʸ ᵛᵃᵛʳ ⁻ ˡᶦᶜᵉⁿˢᵉᵈ ᵘⁿᵈᵉʳ ᵗʰᵉ ᵃᵖᵃᶜʰᵉ ˡᶦᶜᵉⁿˢᵉ ᵛᵉʳˢᶦᵒⁿ ᵗʷᵒ ᵈᵒᵗ ᶻᵉʳᵒ
  */
-package java.util.concurrent;
+package client;
 
-/**
- * GWT emulated version of the {@link ExecutorService} with a limited set of methods used by Vavr.
- */
-public interface ExecutorService extends Executor {
+import com.google.gwt.junit.tools.GWTTestSuite;
+import junit.framework.Test;
+import junit.framework.TestCase;
 
-    Future<?> submit(Runnable task);
+public class GwtVavrTestSuite extends TestCase {
+
+    public static Test suite() {
+        GWTTestSuite suite = new GWTTestSuite("Vavr test suite.");
+        suite.addTestSuite(CollectionsTestGwt.class);
+        suite.addTestSuite(ConcurrentTestGwt.class);
+        return suite;
+    }
 }

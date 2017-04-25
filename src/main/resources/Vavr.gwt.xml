@@ -1,5 +1,5 @@
 <module>
     <inherits name="com.google.gwt.user.User"/>
-    <source path="javaslang"/>
+    <source path="io.vavr"/>
     <super-source path="super"/>
 </module>

@@ -1,18 +1,19 @@
-/*     / \____  _    _  ____   ______  / \ ____  __    _______
- *    /  /    \/ \  / \/    \ /  /\__\/  //    \/  \  //  /\__\   JΛVΛSLΛNG
- *  _/  /  /\  \  \/  /  /\  \\__\\  \  //  /\  \ /\\/ \ /__\ \   Copyright 2014-2016 Javaslang, http://javaslang.io
- * /___/\_/  \_/\____/\_/  \_/\__\/__/\__\_/  \_//  \__/\_____/   Licensed under the Apache License, Version 2.0
+/*                        __    __  __  __    __  ___
+ *                       \  \  /  /    \  \  /  /  __/
+ *                        \  \/  /  /\  \  \/  /  /
+ *                         \____/__/  \__\____/__/.ɪᴏ
+ * ᶜᵒᵖʸʳᶦᵍʰᵗ ᵇʸ ᵛᵃᵛʳ ⁻ ˡᶦᶜᵉⁿˢᵉᵈ ᵘⁿᵈᵉʳ ᵗʰᵉ ᵃᵖᵃᶜʰᵉ ˡᶦᶜᵉⁿˢᵉ ᵛᵉʳˢᶦᵒⁿ ᵗʷᵒ ᵈᵒᵗ ᶻᵉʳᵒ
  */
 package client;
 
 import com.google.gwt.junit.client.GWTTestCase;
-import javaslang.collection.List;
-import javaslang.concurrent.Future;
-import javaslang.concurrent.Promise;
+import io.vavr.collection.List;
+import io.vavr.concurrent.Future;
+import io.vavr.concurrent.Promise;
 
 import java.util.concurrent.Executors;
 
-import static javaslang.API.Future;
+import static io.vavr.API.Future;
 
 public class ConcurrentTestGwt extends GWTTestCase {
 

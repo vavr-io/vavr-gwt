@@ -1,31 +1,31 @@
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.javaslang/javaslang-gwt/badge.png)](https://maven-badges.herokuapp.com/maven-central/io.javaslang/javaslang-gwt)
-[![Build Status](https://travis-ci.org/javaslang/javaslang-gwt.png)](https://travis-ci.org/javaslang/javaslang-gwt)
-[![Coverage Status](https://codecov.io/github/javaslang/javaslang-gwt/coverage.png?branch=master)](https://codecov.io/github/javaslang/javaslang-gwt?branch=master)
-[![Sputnik](https://sputnik.ci/conf/badge)](https://sputnik.ci/app#/builds/javaslang/javaslang-gwt)
-[![Gitter Chat](https://badges.gitter.im/Join%20Chat.png)](https://gitter.im/javaslang/javaslang)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.vavr/vavr-gwt/badge.png)](https://maven-badges.herokuapp.com/maven-central/io.vavr/vavr-gwt)
+[![Build Status](https://travis-ci.org/vavr-io/vavr-gwt.png)](https://travis-ci.org/vavr-io/vavr-gwt)
+[![Coverage Status](https://codecov.io/github/vavr-io/vavr-gwt/coverage.png?branch=master)](https://codecov.io/github/vavr-io/vavr-gwt?branch=master)
+[![Sputnik](https://sputnik.ci/conf/badge)](https://sputnik.ci/app#/builds/vavr-io/vavr-gwt)
+[![Gitter Chat](https://badges.gitter.im/Join%20Chat.png)](https://gitter.im/vavr-io/vavr)
 
-# GWT support for Javaslang
+# GWT support for Vavr
 
-### Using Javaslang in GWT maven projects
+### Using Vavr in GWT maven projects
 
 * Add the following maven dependency to your project:
 
 ```
 <dependency>
-    <groupId>io.javaslang</groupId>
-    <artifactId>javaslang-gwt</artifactId>
-    <version>{javaslang-current-version}</version>
+    <groupId>io.vavr</groupId>
+    <artifactId>vavr-gwt</artifactId>
+    <version>{vavr-current-version}</version>
 </dependency>
 ```
 
-* Inherit the `Javaslang` module in your GWT module's descriptor file:
+* Inherit the `Vavr` module in your GWT module's descriptor file:
 
 ```
 <module>
     <!-- ... -->
-    <inherits name="Javaslang"/>
+    <inherits name="Vavr"/>
     <!-- ... -->
 </module>
 ```
 
-* Use the Javaslang APIs in your code.
+* Use the Vavr APIs in your code.

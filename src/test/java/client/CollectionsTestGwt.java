@@ -1,10 +1,16 @@
+/*                        __    __  __  __    __  ___
+ *                       \  \  /  /    \  \  /  /  __/
+ *                        \  \/  /  /\  \  \/  /  /
+ *                         \____/__/  \__\____/__/.ɪᴏ
+ * ᶜᵒᵖʸʳᶦᵍʰᵗ ᵇʸ ᵛᵃᵛʳ ⁻ ˡᶦᶜᵉⁿˢᵉᵈ ᵘⁿᵈᵉʳ ᵗʰᵉ ᵃᵖᵃᶜʰᵉ ˡᶦᶜᵉⁿˢᵉ ᵛᵉʳˢᶦᵒⁿ ᵗʷᵒ ᵈᵒᵗ ᶻᵉʳᵒ
+ */
 package client;
 
 import com.google.gwt.junit.client.GWTTestCase;
-import javaslang.Function1;
-import javaslang.Tuple;
-import javaslang.Tuple1;
-import javaslang.collection.*;
+import io.vavr.Function1;
+import io.vavr.Tuple;
+import io.vavr.Tuple1;
+import io.vavr.collection.*;
 
 public class CollectionsTestGwt extends GWTTestCase {
 
