@@ -1,14 +1,15 @@
-/*     / \____  _    _  ____   ______  / \ ____  __    _______
- *    /  /    \/ \  / \/    \ /  /\__\/  //    \/  \  //  /\__\   JΛVΛSLΛNG
- *  _/  /  /\  \  \/  /  /\  \\__\\  \  //  /\  \ /\\/ \ /__\ \   Copyright 2014-2016 Javaslang, http://javaslang.io
- * /___/\_/  \_/\____/\_/  \_/\__\/__/\__\_/  \_//  \__/\_____/   Licensed under the Apache License, Version 2.0
+/*                        __    __  __  __    __  ___
+ *                       \  \  /  /    \  \  /  /  __/
+ *                        \  \/  /  /\  \  \/  /  /
+ *                         \____/__/  \__\____/__/.ɪᴏ
+ * ᶜᵒᵖʸʳᶦᵍʰᵗ ᵇʸ ᵛᵃᵛʳ ⁻ ˡᶦᶜᵉⁿˢᵉᵈ ᵘⁿᵈᵉʳ ᵗʰᵉ ᵃᵖᵃᶜʰᵉ ˡᶦᶜᵉⁿˢᵉ ᵛᵉʳˢᶦᵒⁿ ᵗʷᵒ ᵈᵒᵗ ᶻᵉʳᵒ
  */
-package javaslang.concurrent;
+package io.vavr.concurrent;
 
-import javaslang.collection.Queue;
-import javaslang.control.Option;
-import javaslang.control.Try;
-import javaslang.control.Try.CheckedSupplier;
+import io.vavr.collection.Queue;
+import io.vavr.control.Option;
+import io.vavr.control.Try;
+import io.vavr.control.Try.CheckedSupplier;
 
 import java.util.Objects;
 import java.util.concurrent.CancellationException;
