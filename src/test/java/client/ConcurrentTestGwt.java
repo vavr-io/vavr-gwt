@@ -7,6 +7,7 @@
 package client;
 
 import com.google.gwt.junit.client.GWTTestCase;
+import io.vavr.CheckedFunction0;
 import io.vavr.collection.List;
 import io.vavr.concurrent.Future;
 import io.vavr.concurrent.Promise;
@@ -30,7 +31,13 @@ public class ConcurrentTestGwt extends GWTTestCase {
     }
 
     public void testCreateSuccessFuture() {
-        final Future<String> success = Future(Executors.newCachedThreadPool(), () -> "hehehe");
+        final Future<String> success = Future(Executors.newCachedThreadPool(), new CheckedFunction0<String>() {
+            static final long serialVersionUID = 1L;
+            @Override
+            public String apply() throws Throwable {
+                return "hehehe";
+            }
+        });
         assertTrue(success.isSuccess());
         assertEquals(success.get(), "hehehe");
     }
