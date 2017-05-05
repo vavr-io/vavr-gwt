@@ -15,7 +15,8 @@ public class GwtVavrTestSuite extends TestCase {
     public static Test suite() {
         GWTTestSuite suite = new GWTTestSuite("Vavr test suite.");
         suite.addTestSuite(CollectionsTestGwt.class);
-        suite.addTestSuite(ConcurrentTestGwt.class);
+        suite.addTestSuite(ConcurrentTest1.class);
+        suite.addTestSuite(ConcurrentTest2.class);
         return suite;
     }
 }
