@@ -40,6 +40,7 @@
         <assertj.core.version>3.5.2</assertj.core.version>
         <eclipse.lifecycle.mapping.version>1.0.0</eclipse.lifecycle.mapping.version>
         <java.version>1.8</java.version>
+        <vavr.version>0.9.0</vavr.version>
         <junit.version>4.12</junit.version>
         <gwt.version>2.8.0</gwt.version>
         <maven.bundle.version>3.2.0</maven.bundle.version>
@@ -56,20 +57,20 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>io.vavr</groupId>
             <artifactId>vavr</artifactId>
-            <version>${project.version}</version>
+            <version>${vavr.version}</version>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>io.vavr</groupId>
             <artifactId>vavr</artifactId>
-            <version>${project.version}</version>
+            <version>${vavr.version}</version>
             <classifier>sources</classifier>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>io.vavr</groupId>
             <artifactId>vavr-match</artifactId>
-            <version>${project.version}</version>
+            <version>${vavr.version}</version>
             <classifier>sources</classifier>
         </dependency>
         <dependency>
