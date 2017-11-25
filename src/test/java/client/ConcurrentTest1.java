@@ -7,14 +7,16 @@
 package client;
 
 import com.google.gwt.junit.client.GWTTestCase;
-import io.vavr.CheckedFunction0;
-import io.vavr.collection.List;
 import io.vavr.concurrent.Future;
-import io.vavr.concurrent.Promise;
+import io.vavr.control.Try;
 
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.Predicate;
 
 import static io.vavr.API.Future;
+
+//import io.vavr.concurrent.Promise;
 
 /**
  * We should split tests into small parts because of this compiler message
@@ -43,13 +45,14 @@ public class ConcurrentTest1 extends GWTTestCase {
     }
 
     public void testFutureSuccess() {
-        boolean[] onCompleteCalled = new boolean[] { false };
-        Promise<String> promise = Promise.make();
-        promise.future().onComplete(value -> {
-            onCompleteCalled[0] = true;
+        final AtomicBoolean ok = new AtomicBoolean(false);
+        final Ref<Predicate<Try<? extends String>>> comp = new Ref<>();
+        final Future<String> future = Future.join(comp::setV);
+        future.onComplete(value -> {
+            ok.set(true);
             assertEquals("value", value.get());
         });
-        promise.success("value");
-        assertTrue("onComplete handler should have been called", onCompleteCalled[0]);
+        comp.getV().test(Try.success("value"));
+        assertTrue("onComplete handler should have been called", ok.get());
     }
 }

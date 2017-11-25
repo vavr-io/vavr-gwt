@@ -9,11 +9,10 @@ package client;
 import com.google.gwt.junit.client.GWTTestCase;
 import io.vavr.collection.List;
 import io.vavr.concurrent.Future;
-import io.vavr.concurrent.Promise;
+import io.vavr.control.Try;
 
-import java.util.concurrent.Executors;
-
-import static io.vavr.API.Future;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.function.Predicate;
 
 /**
  * We should split tests into small parts because of this compiler message
@@ -28,27 +27,30 @@ public class ConcurrentTest2 extends GWTTestCase {
     }
 
     public void testFutureFailure() {
-        boolean[] onFailureCalled = new boolean[] { false };
-        Promise<String> promise = Promise.make();
-        promise.future().onFailure(e -> {
-            onFailureCalled[0] = true;
+        final AtomicBoolean onFailureCalled = new AtomicBoolean(false);
+        final Ref<Predicate<Try<? extends String>>> comp = new Ref<>();
+        final Future<String> future = Future.join(comp::setV);
+        future.onFailure(e -> {
+            onFailureCalled.set(true);
             assertEquals("message", e.getMessage());
         });
-        promise.failure(new Exception("message"));
-        assertTrue("onFailure handler should have been called", onFailureCalled[0]);
+        comp.getV().test(Try.failure(new Exception("message")));
+        assertTrue("onFailure handler should have been called", onFailureCalled.get());
     }
 
     public void testFutureSequence() {
-        boolean[] onCompleteCalled = new boolean[] { false };
-        Promise<String> promise1 = Promise.make();
-        Promise<String> promise2 = Promise.make();
-        Future.sequence(List.of(promise1.future(), promise2.future()))
+        final AtomicBoolean onCompleteCalled = new AtomicBoolean(false);
+        final Ref<Predicate<Try<? extends String>>> comp1 = new Ref<>();
+        final Future<String> future1 = Future.join(comp1::setV);
+        final Ref<Predicate<Try<? extends String>>> comp2 = new Ref<>();
+        final Future<String> future2 = Future.join(comp2::setV);
+        Future.sequence(List.of(future1, future2))
               .onComplete(results -> {
-                  onCompleteCalled[0] = true;
+                  onCompleteCalled.set(true);
                   assertEquals(2, results.get().size());
               });
-        promise1.success("success1");
-        promise2.success("success2");
-        assertTrue("onComplete handler should have been called", onCompleteCalled[0]);
+        comp1.getV().test(Try.success("success1"));
+        comp2.getV().test(Try.success("success2"));
+        assertTrue("onComplete handler should have been called", onCompleteCalled.get());
     }
 }
