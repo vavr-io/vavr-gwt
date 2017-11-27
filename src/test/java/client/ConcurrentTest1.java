@@ -12,6 +12,7 @@ import io.vavr.control.Try;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Predicate;
 
 import static io.vavr.API.Future;
@@ -46,13 +47,13 @@ public class ConcurrentTest1 extends GWTTestCase {
 
     public void testFutureSuccess() {
         final AtomicBoolean ok = new AtomicBoolean(false);
-        final Ref<Predicate<Try<? extends String>>> comp = new Ref<>();
-        final Future<String> future = Future.join(comp::setV);
+        final AtomicReference<Predicate<Try<? extends String>>> comp = new AtomicReference<>();
+        final Future<String> future = Future.join(comp::set);
         future.onComplete(value -> {
             ok.set(true);
             assertEquals("value", value.get());
         });
-        comp.getV().test(Try.success("value"));
+        comp.get().test(Try.success("value"));
         assertTrue("onComplete handler should have been called", ok.get());
     }
 }
