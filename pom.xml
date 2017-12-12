@@ -201,6 +201,9 @@
                         <skipIfEmpty>true</skipIfEmpty>
                         <archive>
                             <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                            <manifestEntries>
+                                <Automatic-Module-Name>io.vavr.gwt</Automatic-Module-Name>
+                            </manifestEntries>
                         </archive>
                     </configuration>
                 </plugin>
