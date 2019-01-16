@@ -1,13 +1,11 @@
 language: java
-jdk:
-  - oraclejdk8
+matrix:
+  include:
+  - jdk: oraclejdk8
 env:
   global:
   - secure: FjwU54kfDaAzg1qZilqMhRjr7YJXdj/ZJAHJ8qvmznziV3r5TLPuxe6gJa8qkCpoSTYqtB1gh0irE5RGDtdYrj9aW4OhaFVKHjtlM1bYHRU+pfNcZ3BmcTC9A94H+cGOBo9YNKNBbc16AGz6Juthug7FUE8vrBDB1Qp03KJLannQN57D/hVKY569IzmCvv7eAz1wRxdGaehUYAKdxnQAeXKvOykATNxTGl2gPoZHfjjxZCT9yJMIAfyTAU4i9+h07dwot8B8Ve/rvEaBShZYU3gUjjkHdkBrSAptzEkpRoPIOodeob7ebMzFBgL6ghO5FJwytRsS2bhmYz/IEoq6IWmtvxK7dosLtujOEczcoWZ2cMGsg0zwe5tg9nDgV3Pb+UgURE/W75do2W9gBldt8vX6bskuTWcJFmmbBXl+eP5c3AyMmV/VNbmhTzWNuqi9MfMdKfMHKxev2RkVEe4gE04XZlQsYJQ2ee2ivnyiZwxtd8I5/9/XSlRul2925yOY9UJDbGHChSbV08P+3kBuiH6d9NtMQfzv2S+pflyXpMA/3y2GknV9dEYihGQ+qGKj4LIDzAbec8lIlrYsCb6kbQVISt5lafn0Z0aHLho48R8hdnFaY2yoH6NID35+MWcM8QVVtSTkFbWcmT87yjPbycvvislgoODvug+D7Ygee7c=
   - secure: I8GevzVNeNHz4XsdBmLehZ6RdGX5/aGF0kM/sB3ensCUb++1qz43KJkcWk0jEBsKKktN6tGn5L9pv8RU3w+Vb2TpqrXl+uqcm58ngXTaGBiXrZHj3MSJoFMlko6K8+soJfeucUcGV6i5pNsoJE0UH/WbiPdu9J47F4aWywT8vfJsL75FBYXHuPZXW7vUOjc8a3wXiIvTgSy2AVIuIVHLm9kNWdG5CgqHGGQAhHWjrdsgW31Oii1AoUdj36wB2/mpf2YdPoPaz0SMKkah+NoHfaPM4GBts3gQkIMzpO6xuTDnxaNrA7BiuTywNtK5yZHhwFVc6QRcrTRBKWsUlFHFChW3qiCWcNT78dVD+Jxoxbbw3RtkdQwFievzhg28mhdrcShj03X1S90WIQhV/uovgyG2DWrkZUrqZ+CipFAgpJnF7c1Q0HHvrBWwdQR8c0NTp/Te2THKDWjRtKhRajEqj0XGi6vyNgQLbvFHzIMWnzO61cZGs6bDx0hOM/1aiinKWv+a8kjL3TWSa1aKs+KUm5I9QDxpVsKBtmTFbH9yWrGpUGra2mb5IfRSnavKG2kfBiBgRn5h4gR6AECG1S8Co5aD2BJdOTSOxjVEO0b2ktGInfiSrl/mTKwfF90tUI99I2w0A2wtp3+eoSWYBERGXswQz6saotaxbobQlYzlwso=
-before_install:
-  - sudo apt-get update
-  - sudo apt-get install --only-upgrade -y oracle-java8-installer
-  - pip install --user codecov
 after_success:
+  - bash <(curl -s https://codecov.io/bash)
   - mvn clean deploy -DskipTests --settings .travis/maven-settings.xml

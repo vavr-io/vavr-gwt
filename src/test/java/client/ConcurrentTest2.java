@@ -21,6 +21,7 @@ import java.util.function.Predicate;
  * [INFO]    Compiling...
  * [INFO]       [WARN] JDT threw an exception: file:/home/ruslan/proj/javaslang-gwt/src/test/java/client/ConcurrentTestGwt.java: java.lang.ArrayIndexOutOfBoundsException: 1600
  */
+@SuppressWarnings("deprecation")
 public class ConcurrentTest2 extends GWTTestCase {
 
     @Override public String getModuleName()  {
